@@ -11,6 +11,19 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+
+# Load .env file
+load_dotenv()
+
+# Fetch the API key
+api_key = os.getenv('GEMINI_API_KEY')
+
+# Print or log it to check if the value is correctly loaded (use only for testing)
+if not api_key:
+    print("API key not found! Please check your .env file.")
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
